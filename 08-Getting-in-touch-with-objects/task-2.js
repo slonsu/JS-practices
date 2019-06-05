@@ -1,4 +1,6 @@
-const person = {};
+const person = {
+    rate: 0,
+};
 
 Object.defineProperties(person, {
     rate: {
@@ -6,11 +8,14 @@ Object.defineProperties(person, {
         enumerable: false,
     },
     salary: {
-        writable: false,
         get() {
             const today = new Date();
             return this.rate * today.getDay();
         },
+    
+        set salary(str) {
+            throw new Error();
+        }
     }
 });
 
