@@ -12,5 +12,12 @@ function CoffeeMachine(power, capacity) {
     
 	this.getWaterAmount = function() {
 		return waterAmount;
-	};
+    };
+    
+    this.getPower = function() {
+        return power;
+    };
 }
+
+var coffeeMachine = new CoffeeMachine(50000, 10);
+console.log(coffeeMachine.getPower());
