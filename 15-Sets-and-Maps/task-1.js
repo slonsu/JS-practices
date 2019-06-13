@@ -46,9 +46,11 @@ class DB {
 
     readAll() {
         var returnarr = [];
-        for (i = 0; i < this._dperson.size - 1; i++) {
-            returnarr = returnarr + 
+        for (let i = 0; i <= this._dperson.size - 1; i++) {
+            returnarr = returnarr + i + this._dperson.get(i);
+            console.log(this._dperson.get(i));
         }
+        
     }
 }
 
@@ -63,6 +65,6 @@ const person = {
 
 const id = db.create(person);
 const customer = db.read(id);
-//const customers = db.readAll(); // array of users
+const customers = db.readAll(); // array of users
 //db.update(id, { age: 22 }); // id
 //db.delete(id); // true
