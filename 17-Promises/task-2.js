@@ -1,7 +1,22 @@
 function getCustomers(customers, countries) {
     return new Promise((resolve, reject) => {
-        const obj1 = {};
-        console.log(obj1);
+        let icountry = {};
+        let merge = [];
+        for (let i = 0; i < countries.length; i++) {
+            icountry[countries[i].id] = countries[i].country;
+        }
+        for (let customer of customers) {
+            if (typeof icountry[customer.id] == 'undefined') {
+                reject('We don\'t have information about country for this customer: ' + customer.name)
+            } else if (customer.verified === true) {
+                merge.push({
+                    id: customer.id,
+                    name: customer.name,
+                    country: icountry[customer.id]
+                });
+            } 
+        }
+        resolve(merge);
     });
 }
 
@@ -37,11 +52,6 @@ for (let i; i <= customers.length; i++)
     }
 }
 
-
-
-
-
-
-// getCustomers(customers, countries)
-//     .then((customers) => console.log(customers))
-//     .catch(error => console.log(error))
+getCustomers(customers, countries)
+    .then((customers) => console.log(customers))
+    .catch(error => console.log(error))
