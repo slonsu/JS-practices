@@ -47,9 +47,12 @@ class DB {
     readAll() {
         var returnarr = [];
         for (let i = 0; i <= this._dperson.size - 1; i++) {
-            returnarr = returnarr + i + this._dperson.get(i);
-            console.log(this._dperson.get(i));
+            returnarr.push(this._dperson.get(i)) ;
+            
         }
+    }
+
+    update(id, obj) {
         
     }
 }
